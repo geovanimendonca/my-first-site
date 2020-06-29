@@ -1,0 +1,19 @@
+Executar o site -> python manage.py runserver
+Virtualenv -> myeenv\Scripts\activate
+ip -> 127.0.0.1:8000
+
+Admin -> Login: Geovani - geovanigeovani
+
+
+
+Criando aplicação
+python manage.py startapp NOME_DO_APP
+
+
+Upload quando faz alterações
+python manage.py migrate lab(NOME_DO_APP)
+
+Iniciar git para um projeto novo
+git init
+git config --global user.name "Seu nome"
+git config --global user.email email@email.com
