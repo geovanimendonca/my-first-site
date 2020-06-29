@@ -18,10 +18,15 @@
             <h2><a href="">Meu segundo post</a></h2>
             <p>Uma frase qualquer</p>
         </div>
-        <div>
-          
-            <h2><a href="">Larissa</a></h2>
-            <p>A Larissa é muito linda e eu amo muito ela!</p>
-        </div>
+        
+
+        {% for post in posts %}
+            <div>
+                
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <p>published: {{ post.published_date }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
