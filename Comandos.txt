@@ -2,13 +2,10 @@ Executar o site -> python manage.py runserver
 Virtualenv -> myeenv\Scripts\activate
 ip -> 127.0.0.1:8000
 
-Admin -> Login: Geovani - geovanigeovani
-
-
-
+Admin -> Login: Geovani (geovanimendonca§nãoseiqual o certo)- geovanigeovani
+Admin no anywhere -> geovani - geovanigeovani
 Criando aplicação
 python manage.py startapp NOME_DO_APP
-
 
 Upload quando faz alterações
 python manage.py migrate lab(NOME_DO_APP)
@@ -17,3 +14,15 @@ Iniciar git para um projeto novo
 git init
 git config --global user.name "Seu nome"
 git config --global user.email email@email.com
+
+
+Upload para o git das informações atualizadas:
+git status (mostra o que tem de diferente)
+git add --all . (o ponto é essencial)
+git status (mostra o que vai upar)
+git commit -m "mensagem descritiva do que mudou"
+git push (upload para o github)
+
+Atualizar PythonAnywhere
+git pull
+ir para aba Web e dar RELOAD
