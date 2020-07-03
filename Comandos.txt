@@ -26,3 +26,7 @@ git push (upload para o github)
 Atualizar PythonAnywhere
 git pull
 ir para aba Web e dar RELOAD
+
+Atualizar CSS
+workon geovanimendonca.pythonanywhere.com
+python manage.py collectstatic
