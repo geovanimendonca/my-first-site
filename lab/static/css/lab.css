@@ -12,17 +12,16 @@ body {
 
 
 .page-header {
-    background-color: #011052;
+    background-color: #061763b6;
     margin-top: 0;
 
     padding: 2% 2% 2% 4%;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #773f3f;
+    color: #ffffff;
     font-size: 36pt;
     text-align: center;
-    text
     text-decoration: solid;
 }
 

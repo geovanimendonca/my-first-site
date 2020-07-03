@@ -25,6 +25,7 @@ git push (upload para o github)
 
 Atualizar PythonAnywhere
 git pull
+git reset --hard (para resetar em casos de erro)
 ir para aba Web e dar RELOAD
 
 Atualizar CSS
