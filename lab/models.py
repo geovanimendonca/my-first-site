@@ -24,7 +24,7 @@ class Post(models.Model):
 '''   
 
 class Post(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     Exame = models.CharField(max_length=150)
     Paciente = models.CharField(max_length=150)
     text = models.TextField()
