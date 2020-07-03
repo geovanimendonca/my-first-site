@@ -10,8 +10,8 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Exame}}</a></h2>
-            <h4>Paciente: {{post.Paciente}}</h3>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.exame}}</a></h2>
+            <h4>Paciente: {{post.paciente}}</h3>
             <p>Observações: {{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
