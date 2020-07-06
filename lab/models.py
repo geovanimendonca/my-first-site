@@ -1,14 +1,15 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-#from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 
 
 
-'''
+
 class Post(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+
     Exame = models.CharField(max_length=150)
     Paciente = models.CharField(max_length=150)
     text = models.TextField()
@@ -21,8 +22,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.Exame
-'''   
-
+  
+'''
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -36,4 +37,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
+'''   

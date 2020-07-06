@@ -7,6 +7,9 @@ Admin no anywhere -> geovani - geovanigeovani
 Criando aplicação
 python manage.py startapp NOME_DO_APP
 
+Criar super usuario
+python manage.py createsuperuser
+
 Upload quando faz alterações
 python manage.py migrate lab(NOME_DO_APP)
 
