@@ -1,10 +1,10 @@
 {% extends 'lab/base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-        <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+        <h1>Welcome, {{ user.get_username }}. Thanks for logging in.</h1>
         <a href="/logout">Logout Here</a>
     {% else %}
-        <p>Welcome, new user. Please <a href="/login">Log in</a>.</p>
+        <h1>Welcome, new user. Please <a href="/login">Log in</a>.</h1>
     {% endif %}
     
 
