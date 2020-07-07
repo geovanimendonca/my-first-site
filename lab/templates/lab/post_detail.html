@@ -13,5 +13,7 @@
         <h2>{{ post.Exame }}</h2>
         <h3>Paciente: {{post.Paciente}}</h3>
         <p>Observações: {{ post.text|linebreaksbr }}</p>
+
+        <a href="{% url 'delete' pk=post.pk%}">Delete</a>
     </div>
 {% endblock %}
