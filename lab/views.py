@@ -11,6 +11,8 @@ from firebase_admin import firestore
 from google.cloud import storage
 import os, itertools
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="./pythondbtest-a8bdf-firebase-adminsdk-daafs-7052e44485.json"
+
 firebaseConfig = {
     'apiKey': "AIzaSyDuYp1S1udPe47Idq2zM9FCAg-X3QDUgpw",
     'authDomain': "pythondbtest-a8bdf.firebaseapp.com",
