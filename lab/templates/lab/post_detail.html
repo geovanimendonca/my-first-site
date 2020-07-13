@@ -7,14 +7,18 @@
                 {{ post.published_date }}
             </div>
         {% endif %}
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        {% endif %}
-        <h2>{{ post.Exame }}</h2>
-        <h3>Paciente: {{post.Paciente}}</h3>
-        <p>Observações: {{ post.text|linebreaksbr }}</p>
+           
+        <h2>Exam: {{ post.Exam }}</h2>
+        <h3>Pacient: {{post.Pacient}}</h3>
+        <h3>Cpf: {{post.Cpf_pacient}}</h3>
+        <h3>Observations: {{ post.Observations}}</h3>
+        <br>
+        
 
-        <a href="{% url 'delete' pk=post.pk%}">Delete</a>
+        
+        <a href="{% url 'post_edit' pk=post.pk %}" class="btn-edit-post" ><span class="glyphicon glyphicon-pencil"></span></a>
+        <a href="{% url 'result' pk=post.pk%}" class="btn-enter-account"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{% url 'delete' pk=post.pk %}" class="btn-delete"><span class="glyphicon glyphicon-remove"></span></a>
 
         
 

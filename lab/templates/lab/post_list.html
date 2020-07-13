@@ -1,24 +1,33 @@
 {% extends 'lab/base.html' %}
+{% load static %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Welcome, {{ user.get_username }}. Thanks for logging in.</h1>
-        <a href="/logout">Logout Here</a>
+        <h2>Welcome, {{ user.get_username }}.</h1>
+        <a class="btn-exit-account" href="/logout"><span class="glyphicon glyphicon-user"></span></a>
+        <p class="text-exit-acount">Logout </p>  
+        <a href="{% url 'post_new' %}" class="btn-new-exam"><span class="glyphicon glyphicon-plus"></span></a>
+        <p class="text-new-post">New Exam</p>
+        <br><br>
+        
     {% else %}
-        <h1>Welcome, new user. Please <a href="/login">Log in</a>.</h1>
+        <a class="btn-enter-account" href="/login"><span class="glyphicon glyphicon-user"></span></a>
+        <p class="text-exit-acount">Login</p>  
+        
     {% endif %}
-    
-
     
     {% for post in posts %}
         {% if user.is_authenticated %}
-            <div class="post">
-                <div class="date">
-                    
+            {% if user.get_username == post.author %}
+                <div class="post">
+                    <div class="date">
+                        
+                    </div>
+                    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Exam}}</a></h2>
+                    <h3>Paciente: {{post.Pacient}}</h3>
+                    {{ post.published_date }}
+                    <br>
                 </div>
-                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Exame}}</a></h2>
-                <h3>Paciente: {{post.Paciente}}</h3>
-                {{ post.published_date }}
-            </div>
+            {% endif %}
         {% endif %}   
     {% endfor %}
 {% endblock %}

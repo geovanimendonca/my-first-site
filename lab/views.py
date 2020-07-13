@@ -28,28 +28,30 @@ cred = credentials.Certificate('./pythondbtest-a8bdf-firebase-adminsdk-daafs-705
 db = firestore.client() # Database
 client = storage.Client() # Storage
 bucket = client.get_bucket('pythondbtest-a8bdf.appspot.com')
+
+# Exemplo de botão que upa coisas pra nuvem
 def button(request):
-    
     return render(request,'lab/base.html')
+# Exemplo de botão que upa coisas pra nuvem
+def output(request,pk):
+    post_to_delete=Post.objects.get(id=pk)
+    try:
+        #sprint("done")
+        users_ref = db.collection(u'Exame_site')
+        docs = users_ref.stream()
+        for doc in docs:
+            CPF = str(post_to_delete.Cpf_pacient)
+            #print(CPF)
+            #print(u'{} => {}'.format(doc.id, doc.to_dict()))
+            exp = doc.to_dict()
+            data = exp.get(CPF+"result","")
+            print(data)
+        if data != None:
+            Exame_result = data[0]
+            return render(request,'lab/result.html',{'data':data,'exame':Exame_result})
+    except:
 
-def output(request):
-    Equipamento = 'Equipamento 5' 
-    CPF = '111111111'
-    
-    doc_ref = db.collection(Equipamento).document(u'Exames')#.document(CPF+' '+date_time_txt)
-    doc_ref.set({
-        #date_time_txt+' '+
-        CPF:['Estes dados','vieram do','site']
-    },merge=True)
-    
-    data='Dados foram para nuvem'
-    #print(data.text)
-    #data=data.text
-    
-    return render(request,'lab/base.html',{'data':data})
-    
-    
-
+        return render(request, 'lab/result.html')
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -63,11 +65,19 @@ def post_new(request):
 
      if request.method == "POST":
          form = PostForm(request.POST)
+         
          if form.is_valid():
+
              post = form.save(commit=False)
              post.author = request.user
              post.published_date = timezone.now()
              post.save()
+             Equipamento = 'Exame_site' 
+             CPF = str(post.Cpf_pacient)
+             doc_ref = db.collection(Equipamento).document(u'Exames')#.document(CPF+' '+date_time_txt)
+             doc_ref.set({
+                 CPF:[str(post.Exam),str(post.Pacient),str(post.Observations),str(post.author),str(post.published_date)]
+             },merge=True)
              return redirect('post_detail', pk=post.pk)
 
      else:
@@ -80,16 +90,29 @@ def post_edit(request, pk):
          form = PostForm(request.POST, instance=post)
          if form.is_valid():
              post = form.save(commit=False)
-             post.author = request.user
+             #post.author = request.user
              post.published_date = timezone.now()
              post.save()
+             Equipamento = 'Exame_site' 
+             CPF = str(post.Cpf_pacient)
+             doc_ref = db.collection(Equipamento).document(u'Exames')#.document(CPF+' '+date_time_txt)
+             doc_ref.set({
+                 CPF:[str(post.Exam),str(post.Pacient),str(post.Observations),str(post.author),str(post.published_date)]
+             },merge=True)
              return redirect('post_detail', pk=post.pk)
      else:
          form = PostForm(instance=post)
      return render(request, 'lab/post_edit.html', {'form': form})
 
 def delete_post(request,pk):
+    
     post_to_delete=Post.objects.get(id=pk)
+    Equipamento = 'Exame_site' 
+    CPF = str(post_to_delete.Cpf_pacient)
+    print(str(post_to_delete.Cpf_pacient))
+    doc_ref = db.collection(Equipamento).document(u'Exames')
+    doc_ref.update({str(CPF):firestore.DELETE_FIELD})
+
     post_to_delete.delete()
     return redirect('/')
 

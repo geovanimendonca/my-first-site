@@ -1,0 +1,13 @@
+{% extends 'lab/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if data %}
+        {{exame| safe}}
+
+    {% else %}
+        <h1>No results found</h1>
+
+    {% endif %}
+
+
+{% endblock %}

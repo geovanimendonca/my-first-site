@@ -9,5 +9,5 @@ urlpatterns = [
     path('post/<int:pk>/delete/',views.delete_post,name='delete'),
     
     path('', views.button),
-    path('output/', views.output,name="script"),
+    path('output/<int:pk>', views.output,name="result"),
 ]

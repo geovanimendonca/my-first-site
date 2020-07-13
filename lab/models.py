@@ -9,13 +9,14 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-
-    Exame = models.CharField(max_length=150)
-    Paciente = models.CharField(max_length=150)
-    text = models.TextField()
+    Exam = models.CharField(max_length=150)
+    Pacient = models.CharField(max_length=150)
+    Cpf_pacient = models.IntegerField()
+    Observations = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-
+    author = models.TextField()
+    
     def publish(self):
         self.published_date = timezone.now()
         self.save()
