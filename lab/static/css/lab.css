@@ -8,7 +8,7 @@ h2 a{
 }
 
 body {
-    padding-left: 1%;
+    padding-left: 3%;
     padding-top: 0.5%;
     padding-bottom: 1%;
     padding-right: 1%;
@@ -25,7 +25,6 @@ body {
 .btn-exit-account{
     color: #e91212;
     font-size: 26pt;
-    margin-left: 5%;
 }
 .btn-new-exam{
     color: #00ff0d;
@@ -47,8 +46,14 @@ body {
 .btn-edit-post{
     color: #1013bd;
     font-size: 22pt;
-    margin-left: 2%;
+    margin-left: 5%;
     margin-right: 3%;
+}
+.detail{
+    margin-left: 5%;
+}
+.result-text{
+    margin-left: 5%; 
 }
 
 .text-exit-acount{
@@ -60,7 +65,7 @@ body {
 .text-new-post{
     color: #000000;
     font-size: 14pt;
-    margin-left: 2%;
+    margin-left: 5%;
 }
 
 
@@ -73,7 +78,7 @@ body {
 }
 
 .content {
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 h1, h2, h3, h4 {
@@ -86,20 +91,24 @@ h1, h2, h3, h4 {
 
 .save {
     float: right;
+    
 }
-
+.post-form{
+    margin-left: 5%;
+}
 .post-form textarea, .post-form input {
     width: 100%;
+    margin-left: 3%;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #2c811d;
     font-size: 26pt;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-left: 1%;
 }
 
 .post h2 a, .post h2 a:visited {
@@ -109,5 +118,5 @@ h1, h2, h3, h4 {
 /*login*/
 
 .auth-card{
-    margin-bottom: 30px;
+    margin-bottom: 5%;
 }

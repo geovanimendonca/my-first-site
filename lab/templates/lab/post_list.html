@@ -1,21 +1,13 @@
 {% extends 'lab/base.html' %}
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <h2>Welcome, {{ user.get_username }}.</h1>
-        <a class="btn-exit-account" href="/logout"><span class="glyphicon glyphicon-user"></span></a>
-        <p class="text-exit-acount">Logout </p>  
-        <a href="{% url 'post_new' %}" class="btn-new-exam"><span class="glyphicon glyphicon-plus"></span></a>
-        <p class="text-new-post">New Exam</p>
-        <br><br>
-        
-    {% else %}
-        <a class="btn-enter-account" href="/login"><span class="glyphicon glyphicon-user"></span></a>
-        <p class="text-exit-acount">Login</p>  
-        
-    {% endif %}
-    
-    {% for post in posts %}
+
+{% if user.is_authenticated %}
+    <a href="{% url 'post_new' %}" class="btn-new-exam"><span class="glyphicon glyphicon-plus">New</span></a>
+    <div class="content container">
+{% endif %}
+
+        {% for post in posts %}
         {% if user.is_authenticated %}
             {% if user.get_username == post.author %}
                 <div class="post">

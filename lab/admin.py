@@ -17,5 +17,3 @@ admin.site.register(Post)
 
 
 
-
-

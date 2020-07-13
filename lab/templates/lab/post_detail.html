@@ -3,15 +3,15 @@
 {% block content %}
     <div class="post">
         {% if post.published_date %}
-            <div class="date">
+            <div class=" detail">
                 {{ post.published_date }}
             </div>
         {% endif %}
            
-        <h2>Exam: {{ post.Exam }}</h2>
-        <h3>Pacient: {{post.Pacient}}</h3>
-        <h3>Cpf: {{post.Cpf_pacient}}</h3>
-        <h3>Observations: {{ post.Observations}}</h3>
+        <h2 class=" detail">Exam: {{ post.Exam }}</h2>
+        <h3 class=" detail">Pacient: {{post.Pacient}}</h3>
+        <h3 class=" detail">Cpf: {{post.Cpf_pacient}}</h3>
+        <h3 class=" detail">Observations: {{ post.Observations}}</h3>
         <br>
         
 
